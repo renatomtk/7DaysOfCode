@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 4</title>
+
+    <!-- 
+    criar um programa que comece com um valor específico pré-definido entre 0 a 10 para o número que você vai adivinhar (7, por exemplo).
+    Em seguida, o programa vai perguntar para você qual o valor que você deseja chutar e, caso você acerte, ele irá te parabenizar. Caso erre, ele vai te dar mais 2 tentativas.
+    No fim, caso você não acerte nenhuma vez, ele vai imprimir qual era o número inicial.
+    -->
+
+</head>
+
+<body>
+    <script>
+
+        let num = Math.floor(Math.random() * 11);
+        let chance = 2
+
+        let chute = prompt('Adivinhe o número que está entre 0 e 10. Você tem apenas 3 chances!')
+        if (chute == '') {
+            while (chute == '') {
+                chute = prompt('Chute um número!')
+            }
+        }
+        for (i = 0; i < 2; i++) {
+            let chute = prompt(`Adivinhe o número que está entre 0 e 10. Você tem apenas ${chance} chance(s)!`)
+            if (chute == '') {
+                while (chute == '') {
+                    chute = prompt('Chute um número!')
+                }
+            }
+            chance = chance - 1
+            if (chute == num) {
+                document.write(`Parabéns! Você acertou o número! :) <br> O número inicial era <b>${num}</b>`)
+                break
+            }
+            if (i == 1) {
+                document.write(`Que pena que você não acertou! :( <br> O número inicial era <b>${num}</b>`)
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
